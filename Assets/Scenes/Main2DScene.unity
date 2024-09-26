@@ -1319,3 +1319,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4934907262038983360, guid: 561baa61f436f064da3d7105bcfc47aa, type: 3}
   bulletSpeed: 2
+  bulletNumber: 3
