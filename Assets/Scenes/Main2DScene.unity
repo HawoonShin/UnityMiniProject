@@ -673,6 +673,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2133635629936236740, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
+      propertyPath: m_Name
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133635629936236740, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
@@ -1226,8 +1230,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1708597416}
   - component: {fileID: 1708597417}
+  - component: {fileID: 1708597418}
   m_Layer: 3
-  m_Name: Pistol 1 (72 ppi)
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1240,8 +1245,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708597415}
-  m_LocalRotation: {x: -0, y: 0, z: 0.0020220648, w: -0.99999803}
-  m_LocalPosition: {x: 0.13648191, y: -0.088796794, z: -1.01}
+  m_LocalRotation: {x: -0, y: 0, z: 0.0020218713, w: -0.999998}
+  m_LocalPosition: {x: 0.13648209, y: -0.088796765, z: -1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1286,8 +1291,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 738869809
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 536a473fa9adb1146982141e54963433, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1300,3 +1305,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1708597418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708597415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72b496c47b2bd04b91da290286bbaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4934907262038983360, guid: 561baa61f436f064da3d7105bcfc47aa, type: 3}
+  bulletSpeed: 2
