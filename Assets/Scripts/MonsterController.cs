@@ -10,7 +10,7 @@ public class MonsterController : MonoBehaviour
     // 공격 실행
 
     // 몬스터 체력
-    [SerializeField] int monHp;
+    [SerializeField] public float monHp;
     // 몹 이동 속도
     [SerializeField] float monSpeed;
     // 몹 rigidbody
@@ -26,6 +26,12 @@ public class MonsterController : MonoBehaviour
     private void Update()
     {
         Move();
+
+        
+        if(monHp<=0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Move()
@@ -36,13 +42,10 @@ public class MonsterController : MonoBehaviour
     // 충돌시
     private void OnCollisionStay2D(Collision2D collision)
     {
-        // 닿은 오브젝트의 체력 감지
-
-
-
         // 코루틴 동작이 false일 경우
         // 공격 후 코루틴 실행
-        if (isCoroutineRunning == false)
+        if (isCoroutineRunning == false &&
+            collision.gameObject.tag == "Wall")
         {
             // 공격
             Debug.Log("공격한다.");
@@ -55,7 +58,7 @@ public class MonsterController : MonoBehaviour
     }
 
 
-    // 공격 코루틴
+    // 공격 쿨타임 코루틴
     IEnumerator AttackCoroutine()
     {
         isCoroutineRunning = true;
