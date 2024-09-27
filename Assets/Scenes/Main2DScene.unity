@@ -173,6 +173,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1833075456448242, guid: 1713af3811cfb9d4d82968643d5b8586, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     - target: {fileID: 4881386325594014, guid: 1713af3811cfb9d4d82968643d5b8586, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1320,3 +1324,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4934907262038983360, guid: 561baa61f436f064da3d7105bcfc47aa, type: 3}
   bulletSpeed: 2
   bulletNumber: 3
+  firePoint: {fileID: 1708597416}

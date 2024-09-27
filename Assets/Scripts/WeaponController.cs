@@ -45,9 +45,9 @@ public class WeaponController : MonoBehaviour
             // 발사 사이에 딜레이 필요? = 연사력
 
             // 총알 생성
-            GameObject bullet = Instantiate(bulletPrefab,firePoint.position,firePoint.rotation);
             // 총 위치에 총알 생성
-           //  bullet.transform.position = gameObject.transform.position;
+            GameObject bullet = Instantiate(bulletPrefab,firePoint.position,firePoint.rotation);
+           
 
             // Debug.Log($"발사! (현재탄수 : {curBulletNumber})");
 
