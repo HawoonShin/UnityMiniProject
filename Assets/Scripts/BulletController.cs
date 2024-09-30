@@ -26,6 +26,9 @@ public class BulletController : MonoBehaviour
         // 총알 발사
         rigid.velocity = transform.right * bulletSpeed;
 
+        // 총알 회전
+        transform.rotation = Quaternion.Euler(0, 0, -90);
+
         // 충돌이 없을 경우
         // 일정시간 이후 총알 삭제
         StartCoroutine(DestroyCoroutine());
