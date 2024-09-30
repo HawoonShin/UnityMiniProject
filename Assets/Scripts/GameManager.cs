@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         // 시작 씬 로드
         // 게임 상태 ready
         curState = GameState.Ready;
-        SceneManager.LoadScene("StartScene");
+        //  SceneManager.LoadScene("StartScene");
     }
 
     private void Update()
@@ -48,14 +48,6 @@ public class GameManager : MonoBehaviour
             // 이후 게임 시작 으로 변경
         }
 
-        if (curState == GameState.GameOver)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                GameRestart();
-            }
-        }
-
     }
 
     public void GameStart()
@@ -63,7 +55,7 @@ public class GameManager : MonoBehaviour
         curState = GameState.Running;
 
         // 메인 씬 불러오기
-        SceneManager.LoadScene("Main2DScene");
+        // SceneManager.LoadScene("Main2DScene");
     }
 
     public void GameOver()
@@ -78,12 +70,15 @@ public class GameManager : MonoBehaviour
         curState = GameState.GameOver;
         // 게임 오버 화면 불러오기
         SceneManager.LoadScene("ClearScene");
+     
     }
 
     public void GameRestart()
     {
         curState = GameState.Ready;
+
+        // SceneManager.LoadScene("Main2DScene");
         // 시작 화면 불러오기
-        SceneManager.LoadScene("StartScene");
+        // SceneManager.LoadScene("StartScene");
     }
 }
