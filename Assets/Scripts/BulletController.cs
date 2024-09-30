@@ -44,8 +44,7 @@ public class BulletController : MonoBehaviour
     // 몬스터와 총알이 충돌할 경우
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision != null &&
-            collision.gameObject.tag == "Monster")
+        if (collision.gameObject.tag == "Monster")
         {
             // 몬스터는 체력 감소
             collision.gameObject.GetComponent<MonsterController>().monHp -= bulletDamage;
@@ -53,8 +52,7 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
 
         }
-        else if (collision != null &&
-            collision.gameObject.tag == "Ground")
+        else if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Wall")
         {
             // 총알은 삭제
             Destroy(gameObject);
