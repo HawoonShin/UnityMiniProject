@@ -21,10 +21,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // animator.Play(idleHash);
-
-        // 이동
-        Move();
+        if (Input.anyKey)
+        {
+            // 이동
+            Move();
+        }
+        else
+        {
+            animator.Play(idleHash);
+        }
 
         // 마우스를 따른 시선 이동
         LookMouse();
@@ -61,7 +66,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (mouseX < 0)
         {
-             transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
 
         }
 

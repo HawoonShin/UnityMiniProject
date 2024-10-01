@@ -13,9 +13,13 @@ public class WeaponController : MonoBehaviour
     // 총알 발사 위치?
     [SerializeField] Transform firePoint;
 
+    // 총알 발사 연출
+    [SerializeField] GameObject fire;
+
     private void Start()
     {
         curBulletNumber = bulletNumber;
+        fire.SetActive(false);
     }
 
     private void Update()
@@ -27,6 +31,14 @@ public class WeaponController : MonoBehaviour
         {
             // 발사
             Shoot();
+
+            // 발사 연출
+            fire.SetActive(true);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            fire.SetActive(false);
         }
 
         // R버튼으로 재장전
@@ -46,8 +58,15 @@ public class WeaponController : MonoBehaviour
 
             // 총알 생성
             // 총 위치에 총알 생성
-            GameObject bullet = Instantiate(bulletPrefab,firePoint.position,firePoint.rotation);
-           
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+            // bullet.transform.rotation = Quaternion.Euler(0,0,-90);
+            // 뒤에 쿼터니언 안쓰고 -90 그래도 붙였다가 오류냈었음 ㅋㅎ
+            // 하지만 여전히 아래로 발사...
+            // 불렛쪽으로 옮기니 해결
+
+            // 충알 발사 시 불꽃이 튀는 듯한 효과
+            // 오브젝트를 on off해서 
 
             // Debug.Log($"발사! (현재탄수 : {curBulletNumber})");
 

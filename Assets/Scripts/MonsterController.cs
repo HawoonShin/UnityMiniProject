@@ -77,12 +77,15 @@ public class MonsterController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bullet")
         {
-           // rigid.velocity = Vector2.left * monSpeed;
-
+            Debug.Log("피격 애니메이션 실행");
             // 피격 애니메이션 실행
             animator.Play(hitHash);
 
+            Destroy(collision.gameObject);
+
         }
+       
+        isCollision = false;
 
     }
 

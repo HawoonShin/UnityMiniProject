@@ -49,7 +49,7 @@ public class BulletController : MonoBehaviour
             // 몬스터는 체력 감소
             collision.gameObject.GetComponent<MonsterController>().monHp -= bulletDamage;
             Debug.Log("몬스터 공격");
-            Destroy(gameObject);
+            
 
         }
         else if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Wall")
