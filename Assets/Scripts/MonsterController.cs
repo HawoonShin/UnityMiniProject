@@ -20,28 +20,47 @@ public class MonsterController : MonoBehaviour
     // 공격 딜레이
     [SerializeField] float attackDelay;
 
+    // 충돌 확인
+    private bool isCollision = false;
+
     // 코루틴 시작 확인
     private bool isCoroutineRunning = false;
 
+    [SerializeField] Animator animator;
+    private static int walkHash = Animator.StringToHash("walk");
+    private static int attackHash = Animator.StringToHash("attack");
+    private static int hitHash = Animator.StringToHash("hit");
+
+
     private void Update()
     {
-        Move();
+        rigid.velocity = Vector3.zero;
 
-        
-        if(monHp<=0)
+        if (monHp <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isCollision == false)
+        {
+            Move();
         }
     }
 
     private void Move()
     {
         rigid.velocity = Vector2.left * monSpeed;
+        animator.Play(walkHash);
     }
 
     // 충돌시
     private void OnCollisionStay2D(Collision2D collision)
     {
+        isCollision = true;
+
         // 코루틴 동작이 false일 경우
         // 공격 후 코루틴 실행
         if (isCoroutineRunning == false &&
@@ -51,8 +70,18 @@ public class MonsterController : MonoBehaviour
             Debug.Log("공격한다.");
             collision.gameObject.GetComponent<WallController>().wallHp -= attackDamage;
 
+            animator.Play(attackHash);
+
             // 코루틴 실행
             StartCoroutine(AttackCoroutine());
+        }
+        if (collision.gameObject.tag == "Bullet")
+        {
+           // rigid.velocity = Vector2.left * monSpeed;
+
+            // 피격 애니메이션 실행
+            animator.Play(hitHash);
+
         }
 
     }
