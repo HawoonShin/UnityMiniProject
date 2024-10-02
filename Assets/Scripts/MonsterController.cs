@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterController : MonoBehaviour
 {
@@ -31,6 +32,14 @@ public class MonsterController : MonoBehaviour
     private static int attackHash = Animator.StringToHash("attack");
     private static int hitHash = Animator.StringToHash("hit");
 
+    // 몬스터 체력 UI
+    [SerializeField] Slider slider;
+    float maxHp;
+
+    private void Awake()
+    {
+        maxHp = monHp;
+    }
 
     private void Update()
     {
@@ -40,6 +49,8 @@ public class MonsterController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        HpSlider();
     }
 
     private void FixedUpdate()
@@ -98,5 +109,10 @@ public class MonsterController : MonoBehaviour
         Debug.Log("공격 쿨타임");
         yield return new WaitForSeconds(attackDelay);
         isCoroutineRunning = false;
+    }
+
+    private void HpSlider()
+    {
+         slider.value = monHp / maxHp;
     }
 }

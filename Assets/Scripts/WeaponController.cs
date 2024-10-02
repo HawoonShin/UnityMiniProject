@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -15,6 +16,9 @@ public class WeaponController : MonoBehaviour
 
     // 총알 발사 연출
     [SerializeField] GameObject fire;
+
+    // 총알 갯수 UI 출력용
+    [SerializeField] TextMeshProUGUI bulletText;
 
     private void Start()
     {
@@ -45,7 +49,16 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             curBulletNumber = bulletNumber;
+            bulletText.text = "재장전!";
             Debug.Log($"재장전! (현재 탄수 : {curBulletNumber})");
+        }
+        if (curBulletNumber >= 0)
+        {
+            bulletText.text = $"{curBulletNumber}/{bulletNumber}";
+        }
+        else if (curBulletNumber < 0)
+        {
+            bulletText.text = "재장전 중...";
         }
     }
 

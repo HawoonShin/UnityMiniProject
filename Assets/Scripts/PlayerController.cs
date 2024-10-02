@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private float mouseY;
     // 좌우 반전용 마우스 x축 입력
     private float mouseX;
-
 
     [SerializeField] Animator animator;
     private static int idleHash = Animator.StringToHash("Idle");
